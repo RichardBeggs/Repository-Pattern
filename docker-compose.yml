@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  db:
+    container_name: sql_server2022
+    image: mcr.microsoft.com/mssql/server
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "Oranges1"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+
+  repositorypattern:
+    image: ${DOCKER_REGISTRY-}repositorypattern
+    build:
+      context: .
+      dockerfile: Repository Pattern/Dockerfile
+    depends_on:
+     - "db"

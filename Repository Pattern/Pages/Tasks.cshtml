@@ -1,0 +1,17 @@
+﻿@page
+@model Repository_Pattern.Pages.TasksModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<div class="text-center">
+    <h1 class="display-4">Tasks</h1>
+    <p>A list of all the tasks.</p>
+</div>
+<div>
+    <ul>
+        @foreach (var task in Model.Tasks)
+        {
+            <li>@task.Name</li>
+        }
+    </ul>
+</div>
