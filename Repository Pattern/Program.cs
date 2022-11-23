@@ -6,8 +6,13 @@ using Repository_Pattern.Service;
 var builder = WebApplication.CreateBuilder(args);
 
 
+//MS SQL
+//builder.Services.AddDbContext<TaskContext>(
+//options => options.UseSqlServer(builder.Configuration.GetConnectionString("SQLDefault")));
+
+//NPG
 builder.Services.AddDbContext<TaskContext>(
-options => options.UseSqlServer(builder.Configuration.GetConnectionString("SQLDefault")));
+options => options.UseNpgsql(builder.Configuration.GetConnectionString("NpgDefault")));
 
 
 //Dependancy injection
